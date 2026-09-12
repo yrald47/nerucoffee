@@ -9,7 +9,11 @@
             No.6
         </title>
         <!-- <link rel="icon" type="image/x-icon" href="assets/images/brand/logo.ico" /> -->
-        <link rel="icon" type="image/svg+xml" href="assets/images/brand/logo.svg" />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="assets/images/brand/logo.svg"
+        />
 
         <meta
             name="description"
@@ -1692,11 +1696,10 @@
                 };
 
                 var GALLERY = [
-                    { title: "Sore di NERU", date: "Placeholder" },
-                    { title: "Racikan hari ini", date: "Placeholder" },
-                    { title: "Sudut favorit", date: "Placeholder" },
-                    { title: "Ngopi santai", date: "Placeholder" },
-                    { title: "Kopi aren spesial", date: "Placeholder" },
+                    { title: "Barista Counter", date: "Placeholder", src: "barista-counter.jpg" },
+                    { title: "Foto indoor lagi sepi", date: "Placeholder", src: "indoor-sepi.jpg" },
+                    { title: "Outdoor", date: "Placeholder", src: "outdoor.jpg" },
+                    { title: "Kopi aren", date: "Placeholder", src: "kopi-aren.jpg" },
                 ];
 
                 var FAQ = [
@@ -1839,9 +1842,16 @@
                 GALLERY.forEach(function (item, i) {
                     var card = document.createElement("div");
                     card.className = "gallery-card";
+                    var photoHtml = item.src
+                        ? '<img src="assets/images/gallery/' +
+                            item.src +
+                            '" alt="' +
+                            item.title +
+                            '" style="width:100%;height:100%;object-fit:cover;border-radius:4px" />'
+                        : "[FOTO: " + item.title + "]";
                     card.innerHTML =
-                        '<div class="gc-photo">[FOTO: ' +
-                        item.title +
+                        '<div class="gc-photo">' +
+                        photoHtml +
                         '</div><div class="gc-title">' +
                         item.title +
                         '</div><div class="gc-date">' +
