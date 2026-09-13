@@ -158,6 +158,7 @@
             }
             .content-pane {
                 width: 100%;
+                overflow: hidden;
             }
             .site-wrapper {
                 display: flex;
@@ -248,6 +249,41 @@
                 margin-bottom: 16px;
                 /* max-width: 46ch; */
             }
+            .sec-blob {
+                position: absolute;
+                z-index: 0;
+                pointer-events: none;
+                background: var(--cream-dim);
+            }
+            .sec-blob-menu {
+                width: 160px;
+                height: 150px;
+                top: -20px;
+                right: -50px;
+                border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%;
+            }
+            .sec-blob-testi {
+                width: 130px;
+                height: 120px;
+                bottom: -10px;
+                left: -40px;
+                border-radius: 40% 60% 45% 55% / 55% 45% 60% 40%;
+                background: var(--sage-soft);
+                opacity: 0.25;
+            }
+            .sec-blob-faq {
+                width: 180px;
+                height: 160px;
+                top: 10px;
+                right: -60px;
+                border-radius: 55% 45% 40% 60% / 40% 60% 55% 45%;
+            }
+
+            /* selang-seling background antar section */
+            #gallery,
+            #faq {
+                background: var(--dream);
+            }
 
             /* ---------- HERO (video bg) ---------- */
             #hero {
@@ -289,6 +325,7 @@
                     rgba(46, 33, 23, 0.85) 100%
                 );
             }
+
             @media (prefers-reduced-motion: reduce) {
                 .hero-video-wrap video {
                     display: none;
@@ -300,6 +337,17 @@
                         var(--espresso-soft)
                     );
                 }
+            }
+            .hero-wave {
+                position: absolute;
+                left: 0;
+                bottom: -1px;
+                width: 100%;
+                height: 70px;
+                z-index: 1;
+            }
+            .hero-wave path {
+                fill: var(--cream);
             }
             .hero-content {
                 position: relative;
@@ -529,6 +577,8 @@
                 font-size: 9.5px;
                 text-align: center;
                 /* padding: 6px; */
+                overflow: hidden;
+                /* border-radius: 6px 6px 45% 16px / 6px 6px 30% 45%; */
             }
             .featured-content {
                 padding: 12px 14px;
@@ -579,10 +629,25 @@
             .gallery-wrap {
                 position: relative;
                 height: 360px;
+                /* background: var(--cream-dim); */
                 background: var(--cream-dim);
-                border-radius: 16px;
+                /* border-radius: 16px; */
+                /* border-radius: 16px 16px 45% 20% / 16px 16px 30% 45%; */
+                border-radius: 16px 16px 0 0;
                 overflow: hidden;
-                touch-action: none;
+                /* touch-action: none; */
+            }
+            .gallery-wave {
+                position: absolute;
+                left: 0;
+                bottom: -1px;
+                width: 100%;
+                height: 50px;
+                z-index: 0;
+                pointer-events: none;
+            }
+            .gallery-wave path {
+                fill: var(--cream);
             }
             .gallery-card {
                 position: absolute;
@@ -604,6 +669,7 @@
                 aspect-ratio: 1/1;
                 background: var(--espresso-soft);
                 border-radius: 4px;
+                /* border-radius: 4px 4px 40% 14px / 4px 4px 25% 40%; */
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -612,6 +678,7 @@
                 text-align: center;
                 padding: 4px;
                 margin-bottom: 8px;
+                overflow: hidden;
             }
             .gallery-card .gc-title {
                 font-family: var(--font-hand);
@@ -966,6 +1033,7 @@
                 width: 100%;
                 aspect-ratio: 4/3;
                 border-radius: 12px;
+                /* border-radius: 10px 10px 45% 18px / 10px 10px 30% 45%; */
                 background: var(--espresso-soft);
                 color: var(--cream-dim);
                 display: flex;
@@ -975,6 +1043,7 @@
                 text-align: center;
                 padding: 12px;
                 margin-bottom: 14px;
+                overflow: hidden;
             }
             .modal-sheet h3 {
                 font-size: 17px;
@@ -1067,6 +1136,10 @@
                     max-width: 640px;
                     margin-left: auto;
                     margin-right: auto;
+                }
+                .cp-section > *:not(.sec-blob) {
+                    position: relative;
+                    z-index: 1;
                 }
                 .sticky-cta {
                     max-width: 40%;
@@ -1173,6 +1246,26 @@
                 position: relative;
                 z-index: 1;
             }
+            /* .content-pane > .bg-blob {
+                position: absolute;
+                z-index: 0;
+                pointer-events: none;
+                background: var(--cream-dim);
+            }
+            .bg-blob-1 {
+                width: 220px;
+                height: 200px;
+                top: -30px;
+                right: -60px;
+                border-radius: 62% 38% 55% 45% / 45% 60% 40% 55%;
+            }
+            .bg-blob-2 {
+                width: 180px;
+                height: 170px;
+                bottom: 300px;
+                left: -50px;
+                border-radius: 45% 55% 40% 60% / 55% 40% 60% 45%;
+            }  */
             /* ---- tekstur tahap 2/3: doodle biji kopi di panel kiri (storefront) ---- */
             /* .scene-pane sudah punya positioning context (fixed/sticky) dari rule aslinya,
                jadi ::before di bawah ini otomatis kepasang tanpa perlu deklarasi ulang */
@@ -1380,6 +1473,8 @@
 
                 <!-- ============ CONTENT PANE ============ -->
                 <div class="content-pane" id="contentPane">
+                    <!-- <div class="bg-blob bg-blob-1"></div>
+                    <div class="bg-blob bg-blob-2"></div> -->
                     <!-- ============ HERO ============ -->
                     <section class="cp-section" id="hero">
                         <div class="hero-video-wrap" id="heroVideoWrap">
@@ -1410,6 +1505,16 @@
                             </video>
                         </div>
                         <div class="hero-scrim"></div>
+                        <svg
+                            class="hero-wave"
+                            viewBox="0 0 1440 100"
+                            preserveAspectRatio="none"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M0,40 C240,90 480,0 720,40 C960,80 1200,10 1440,50 L1440,100 L0,100 Z"
+                            ></path>
+                        </svg>
                         <div class="hero-content">
                             <div class="section-label">Tentang Kami</div>
                             <h1>
@@ -1451,6 +1556,7 @@
 
                     <!-- ============ MENU ============ -->
                     <section class="cp-section" id="menu">
+                        <div class="sec-blob sec-blob-menu"></div>
                         <div class="section-label">Menu</div>
                         <h2>Apa yang mau diseduh hari ini?</h2>
 
@@ -1502,7 +1608,18 @@
                             Geser-geser dulu fotonya kayak nyusun meja kerja
                             sendiri, terus klik yang bikin penasaran.
                         </p>
-                        <div class="gallery-wrap" id="galleryWrap"></div>
+                        <div class="gallery-wrap" id="galleryWrap">
+                            <svg
+                                class="gallery-wave"
+                                viewBox="0 0 1440 100"
+                                preserveAspectRatio="none"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M0,40 C240,90 480,0 720,40 C960,80 1200,10 1440,50 L1440,100 L0,100 Z"
+                                ></path>
+                            </svg>
+                        </div>
                     </section>
 
                     <svg
@@ -1518,6 +1635,7 @@
 
                     <!-- ============ TESTIMONI (dummy preview) ============ -->
                     <section class="cp-section" id="testimoni">
+                        <div class="sec-blob sec-blob-testi"></div>
                         <div class="section-label">Kata Mereka</div>
                         <h2>Kita masih baru banget</h2>
                         <p class="lead">
@@ -1556,6 +1674,7 @@
 
                     <!-- ============ FAQ ============ -->
                     <section class="cp-section" id="faq">
+                        <div class="sec-blob sec-blob-faq"></div>
                         <div class="section-label">Tanya-tanya</div>
                         <h2>Yang sering ditanyain</h2>
                         <div id="faqList"></div>
@@ -1696,10 +1815,26 @@
                 };
 
                 var GALLERY = [
-                    { title: "Barista Counter", date: "Placeholder", src: "barista-counter.jpg" },
-                    { title: "Foto indoor lagi sepi", date: "Placeholder", src: "indoor-sepi.jpg" },
-                    { title: "Outdoor", date: "Placeholder", src: "outdoor.jpg" },
-                    { title: "Kopi aren", date: "Placeholder", src: "kopi-aren.jpg" },
+                    {
+                        title: "Barista Counter",
+                        date: "22-6-2026",
+                        src: "barista-counter.jpg",
+                    },
+                    {
+                        title: "Foto indoor lagi sepi",
+                        date: "20-2-2026",
+                        src: "indoor-sepi.jpg",
+                    },
+                    {
+                        title: "Outdoor",
+                        date: "2-6-2026",
+                        src: "outdoor.jpg",
+                    },
+                    {
+                        title: "Kopi aren",
+                        date: "22-2-2026",
+                        src: "kopi-aren.jpg",
+                    },
                 ];
 
                 var FAQ = [
@@ -1844,10 +1979,10 @@
                     card.className = "gallery-card";
                     var photoHtml = item.src
                         ? '<img src="assets/images/gallery/' +
-                            item.src +
-                            '" alt="' +
-                            item.title +
-                            '" style="width:100%;height:100%;object-fit:cover;border-radius:4px" />'
+                          item.src +
+                          '" alt="' +
+                          item.title +
+                          '" style="width:100%;height:100%;object-fit:cover;border-radius:4px" />'
                         : "[FOTO: " + item.title + "]";
                     card.innerHTML =
                         '<div class="gc-photo">' +
@@ -1870,7 +2005,7 @@
                             card.dataset.dragged = "0";
                             return;
                         }
-                        openGalleryModal(item.title, item.date);
+                        openGalleryModal(item.title, item.date, item.src);
                     });
                 });
 
@@ -1973,13 +2108,18 @@
                     "galleryModalBackdrop",
                 );
                 var galleryModal = document.getElementById("galleryModal");
-                function openGalleryModal(title, date) {
+                function openGalleryModal(title, date, src) {
                     document.getElementById("galleryModalTitle").textContent =
                         title;
                     document.getElementById("galleryModalDate").textContent =
                         date;
-                    document.getElementById("galleryModalPhoto").textContent =
-                        "[FOTO: " + title + "]";
+                    document.getElementById("galleryModalPhoto").innerHTML = src
+                        ? '<img src="assets/images/gallery/' +
+                            src +
+                            '" alt="' +
+                            title +
+                            '" style="width:100%;height:100%;object-fit:cover;border-radius:12px" />'
+                        : "[FOTO: " + title + "]";
                     openModal(galleryModalBackdrop, galleryModal);
                 }
 
