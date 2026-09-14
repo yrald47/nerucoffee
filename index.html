@@ -8,7 +8,6 @@
             NERU Coffee - Kopi & Coffee Shop di Makassar | Jl. Monginsidi Lama
             No.6
         </title>
-        <!-- <link rel="icon" type="image/x-icon" href="assets/images/brand/logo.ico" /> -->
         <link
             rel="icon"
             type="image/svg+xml"
@@ -19,7 +18,7 @@
             name="description"
             content="NERU Coffee, coffee shop di Makassar dengan racikan kopi yang diseduh serius — dari kopi susu klasik sampai kopi aren khas lokal. Jl. Monginsidi Lama No.6, Makassar. Buka 10.00-22.00, musholla & wifi tersedia."
         />
-        <link rel="canonical" href="https://nerucoffee.example.com/" />
+        <link rel="canonical" href="https://nerucoffee.pages.dev/" />
 
         <!-- Open Graph -->
         <meta property="og:type" content="restaurant.restaurant" />
@@ -79,19 +78,6 @@
                 "sameAs": ["https://instagram.com/nerucoffee_"]
             }
         </script>
-        <!-- GANTI domain di canonical/OG/JSON-LD di atas dengan domain asli begitu live -->
-
-        <!-- BUG FIX: file asli .png, bukan .webp -->
-        <!-- lihat perbaikan src di elemen img.base-img di bawah -->
-
-        <!-- ============================================================
-  CATATAN (hapus sebelum publish):
-  - Harga masih "Rp -" (placeholder), ganti begitu fix.
-  - Foto galeri masih placeholder dashed-box.
-  - Testimoni sengaja kosong-jujur (belum ada review asli).
-  - Video di-embed base64 untuk preview mandiri; untuk production,
-    pisahkan jadi file .mp4 terpisah (lebih ringan & streaming lebih baik).
-============================================================ -->
 
         <style>
             :root {
@@ -282,7 +268,7 @@
             /* selang-seling background antar section */
             #gallery,
             #faq {
-                background: var(--dream);
+                background: var(--cream-dim);
             }
 
             /* ---------- HERO (video bg) ---------- */
@@ -629,13 +615,9 @@
             .gallery-wrap {
                 position: relative;
                 height: 360px;
-                /* background: var(--cream-dim); */
-                background: var(--cream-dim);
-                /* border-radius: 16px; */
-                /* border-radius: 16px 16px 45% 20% / 16px 16px 30% 45%; */
+                background: var(--cream);
                 border-radius: 16px 16px 0 0;
                 overflow: hidden;
-                /* touch-action: none; */
             }
             .gallery-wave {
                 position: absolute;
@@ -647,7 +629,7 @@
                 pointer-events: none;
             }
             .gallery-wave path {
-                fill: var(--cream);
+                fill: var(--cream-dim);
             }
             .gallery-card {
                 position: absolute;
@@ -1137,7 +1119,13 @@
                     margin-left: auto;
                     margin-right: auto;
                 }
-                .cp-section > *:not(.sec-blob) {
+                /* .cp-section > *:not(.sec-blob):not(.hero-video-wrap):not(.hero-scrim) {
+                    position: relative;
+                    z-index: 1;
+                } */
+                #menu > *:not(.sec-blob),
+                #testimoni > *:not(.sec-blob),
+                #faq > *:not(.sec-blob) {
                     position: relative;
                     z-index: 1;
                 }
@@ -1246,26 +1234,6 @@
                 position: relative;
                 z-index: 1;
             }
-            /* .content-pane > .bg-blob {
-                position: absolute;
-                z-index: 0;
-                pointer-events: none;
-                background: var(--cream-dim);
-            }
-            .bg-blob-1 {
-                width: 220px;
-                height: 200px;
-                top: -30px;
-                right: -60px;
-                border-radius: 62% 38% 55% 45% / 45% 60% 40% 55%;
-            }
-            .bg-blob-2 {
-                width: 180px;
-                height: 170px;
-                bottom: 300px;
-                left: -50px;
-                border-radius: 45% 55% 40% 60% / 55% 40% 60% 45%;
-            }  */
             /* ---- tekstur tahap 2/3: doodle biji kopi di panel kiri (storefront) ---- */
             /* .scene-pane sudah punya positioning context (fixed/sticky) dari rule aslinya,
                jadi ::before di bawah ini otomatis kepasang tanpa perlu deklarasi ulang */
@@ -1473,8 +1441,6 @@
 
                 <!-- ============ CONTENT PANE ============ -->
                 <div class="content-pane" id="contentPane">
-                    <!-- <div class="bg-blob bg-blob-1"></div>
-                    <div class="bg-blob bg-blob-2"></div> -->
                     <!-- ============ HERO ============ -->
                     <section class="cp-section" id="hero">
                         <div class="hero-video-wrap" id="heroVideoWrap">
@@ -1493,7 +1459,7 @@
                             </video>
                             <video muted loop playsinline autoplay data-idx="1">
                                 <source
-                                    src="Barista_pouring_milk_for_latte.mp4"
+                                    src="assets/videos/Barista_pouring_milk_for_latte.mp4"
                                     type="video/mp4"
                                 />
                             </video>
@@ -1542,17 +1508,6 @@
                             </div>
                         </div>
                     </section>
-
-                    <svg
-                        class="wavy-divider"
-                        viewBox="0 0 300 14"
-                        preserveAspectRatio="none"
-                        aria-hidden="true"
-                    >
-                        <path
-                            d="M0,7 Q15,2 30,7 T60,7 T90,7 T120,7 T150,7 T180,7 T210,7 T240,7 T270,7 T300,7"
-                        />
-                    </svg>
 
                     <!-- ============ MENU ============ -->
                     <section class="cp-section" id="menu">
@@ -1970,9 +1925,11 @@
                 renderFavorites();
                 renderMenu();
 
-                /* ============================================================
-                   GALLERY (draggable)
-                ============================================================ */
+                /* 
+                ============================================================
+                GALLERY (draggable)
+                ============================================================
+                */
                 var galleryWrap = document.getElementById("galleryWrap");
                 GALLERY.forEach(function (item, i) {
                     var card = document.createElement("div");
@@ -2077,7 +2034,7 @@
                 });
 
                 /* ============================================================
-                   MODALS
+                MODALS
                 ============================================================ */
                 function openModal(backdrop, sheet) {
                     backdrop.classList.add("is-open");
@@ -2115,10 +2072,10 @@
                         date;
                     document.getElementById("galleryModalPhoto").innerHTML = src
                         ? '<img src="assets/images/gallery/' +
-                            src +
-                            '" alt="' +
-                            title +
-                            '" style="width:100%;height:100%;object-fit:cover;border-radius:12px" />'
+                          src +
+                          '" alt="' +
+                          title +
+                          '" style="width:100%;height:100%;object-fit:cover;border-radius:12px" />'
                         : "[FOTO: " + title + "]";
                     openModal(galleryModalBackdrop, galleryModal);
                 }
@@ -2141,7 +2098,7 @@
                 );
 
                 /* ============================================================
-                   STOREFRONT: hotspot klik -> avatar jalan + nav + kategori
+                STOREFRONT: hotspot klik -> avatar jalan + nav + kategori
                 ============================================================ */
                 var stage = document.getElementById("stage");
                 var customer = document.getElementById("customer");
@@ -2213,7 +2170,7 @@
                 });
 
                 /* ============================================================
-                   SPEECH BUBBLE reaktif scroll
+                SPEECH BUBBLE reaktif scroll
                 ============================================================ */
                 var bubble = document.getElementById("speechBubble");
                 function sayBubble(text) {
@@ -2239,7 +2196,7 @@
                 });
 
                 /* ============================================================
-                   HERO VIDEO CROSSFADE
+                HERO VIDEO CROSSFADE
                 ============================================================ */
                 var heroVideos = document.querySelectorAll(
                     ".hero-video-wrap video",
@@ -2261,7 +2218,7 @@
                 }
 
                 /* ============================================================
-                   STICKY CTA
+                STICKY CTA
                 ============================================================ */
                 var heroCta = document.getElementById("heroCta");
                 var stickyCta = document.getElementById("stickyCta");
