@@ -239,30 +239,41 @@
                 position: absolute;
                 z-index: -1;
                 pointer-events: none;
-                background: var(--cream-dim);
+            }
+            .sec-blob .bean-body {
+                fill: var(--cream-dim);
+            }
+            .sec-blob .bean-crease {
+                fill: none;
+                stroke: var(--cream);
+                stroke-width: 5;
+                stroke-linecap: round;
+                opacity: 0.7;
             }
             .sec-blob-menu {
                 width: 160px;
                 height: 150px;
                 top: -20px;
                 right: -50px;
-                border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%;
+                transform: rotate(-12deg);
             }
             .sec-blob-testi {
                 width: 130px;
                 height: 120px;
                 bottom: -10px;
                 left: -40px;
-                border-radius: 40% 60% 45% 55% / 55% 45% 60% 40%;
-                background: var(--sage-soft);
-                opacity: 0.25;
+                opacity: 0.35;
+                transform: rotate(20deg);
+            }
+            .sec-blob-testi .bean-body {
+                fill: var(--sage-soft);
             }
             .sec-blob-faq {
                 width: 180px;
                 height: 160px;
                 top: 10px;
                 right: -60px;
-                border-radius: 55% 45% 40% 60% / 40% 60% 55% 45%;
+                transform: rotate(8deg);
             }
 
             /* selang-seling background antar section */
@@ -1511,7 +1522,10 @@
 
                     <!-- ============ MENU ============ -->
                     <section class="cp-section" id="menu">
-                        <div class="sec-blob sec-blob-menu"></div>
+                        <svg class="sec-blob sec-blob-menu" viewBox="0 0 100 120" aria-hidden="true">
+                            <path class="bean-body" d="M50,4 C74,4 90,32 90,60 C90,96 70,116 50,116 C26,116 10,90 10,58 C10,26 27,4 50,4 Z" />
+                            <path class="bean-crease" d="M52,14 Q30,60 54,106" />
+                        </svg>
                         <div class="section-label">Menu</div>
                         <h2>Apa yang mau diseduh hari ini?</h2>
 
@@ -1590,7 +1604,10 @@
 
                     <!-- ============ TESTIMONI (dummy preview) ============ -->
                     <section class="cp-section" id="testimoni">
-                        <div class="sec-blob sec-blob-testi"></div>
+                        <svg class="sec-blob sec-blob-testi" viewBox="0 0 100 120" aria-hidden="true">
+                            <path class="bean-body" d="M50,4 C74,4 90,32 90,60 C90,96 70,116 50,116 C26,116 10,90 10,58 C10,26 27,4 50,4 Z" />
+                            <path class="bean-crease" d="M52,14 Q30,60 54,106" />
+                        </svg>
                         <div class="section-label">Kata Mereka</div>
                         <h2>Kita masih baru banget</h2>
                         <p class="lead">
@@ -1629,7 +1646,10 @@
 
                     <!-- ============ FAQ ============ -->
                     <section class="cp-section" id="faq">
-                        <div class="sec-blob sec-blob-faq"></div>
+                        <svg class="sec-blob sec-blob-faq" viewBox="0 0 100 120" aria-hidden="true">
+                            <path class="bean-body" d="M50,4 C74,4 90,32 90,60 C90,96 70,116 50,116 C26,116 10,90 10,58 C10,26 27,4 50,4 Z" />
+                            <path class="bean-crease" d="M52,14 Q30,60 54,106" />
+                        </svg>
                         <div class="section-label">Tanya-tanya</div>
                         <h2>Yang sering ditanyain</h2>
                         <div id="faqList"></div>
