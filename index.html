@@ -1118,6 +1118,16 @@
                     order: 2;
                     position: relative;
                     z-index: 41;
+                }
+                .content-vignette {
+                    position: fixed;
+                    top: var(--nav-h);
+                    left: 60%;
+                    width: 40%;
+                    height: 100vh;
+                    /* margin-bottom: -100vh; */
+                    pointer-events: none;
+                    z-index: 100;
                     box-shadow:
                         inset 5px 10px 8px 1px rgba(46, 33, 23, 0.4),
                         inset -5px 10px 8px 1px rgba(46, 33, 23, 0.4);
@@ -1172,6 +1182,10 @@
                 }
                 #hero {
                     min-height: calc(100vh - var(--nav-h));
+                }
+
+                .footer {
+                    margin-bottom: 0;
                 }
             }
 
@@ -1451,6 +1465,7 @@
                 </div>
 
                 <!-- ============ CONTENT PANE ============ -->
+                <div class="content-vignette"></div>
                 <div class="content-pane" id="contentPane">
                     <!-- ============ HERO ============ -->
                     <section class="cp-section" id="hero">
