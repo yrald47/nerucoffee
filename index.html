@@ -143,18 +143,18 @@
                 min-height: 100vh;
             }
             .content-vignette {
-                    position: fixed;
-                    top: var(--nav-h);
-                    left: 0;
-                    width: 100%;
-                    height: 100vh;
-                    /* margin-bottom: -100vh; */
-                    pointer-events: none;
-                    z-index: 100;
-                    box-shadow:
-                        inset 5px 10px 8px 1px rgba(46, 33, 23, 0.4),
-                        inset -5px 10px 8px 1px rgba(46, 33, 23, 0.4);
-                }
+                position: fixed;
+                top: var(--nav-h);
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                /* margin-bottom: -100vh; */
+                pointer-events: none;
+                z-index: 100;
+                box-shadow:
+                    inset 5px 10px 8px 1px rgba(46, 33, 23, 0.4),
+                    inset -5px 10px 8px 1px rgba(46, 33, 23, 0.4);
+            }
             .content-pane {
                 width: 100%;
                 overflow: hidden;
@@ -1490,19 +1490,32 @@
                                 autoplay
                                 class="is-active"
                                 data-idx="0"
+                                preload="auto"
                             >
                                 <source
                                     src="assets/videos/Steam_rising_from_coffee_cup.mp4"
                                     type="video/mp4"
                                 />
                             </video>
-                            <video muted loop playsinline autoplay data-idx="1">
+                            <video
+                                muted
+                                loop
+                                playsinline
+                                preload="none"
+                                data-idx="1"
+                            >
                                 <source
                                     src="assets/videos/Barista_pouring_milk_for_latte.mp4"
                                     type="video/mp4"
                                 />
                             </video>
-                            <video muted loop playsinline autoplay data-idx="2">
+                            <video
+                                muted
+                                loop
+                                playsinline
+                                preload="none"
+                                data-idx="2"
+                            >
                                 <source
                                     src="assets/videos/Person_entering_cafe.mp4"
                                     type="video/mp4"
@@ -1550,9 +1563,19 @@
 
                     <!-- ============ MENU ============ -->
                     <section class="cp-section" id="menu">
-                        <svg class="sec-blob sec-blob-menu" viewBox="0 0 100 120" aria-hidden="true">
-                            <path class="bean-body" d="M50,4 C74,4 90,32 90,60 C90,96 70,116 50,116 C26,116 10,90 10,58 C10,26 27,4 50,4 Z" />
-                            <path class="bean-crease" d="M52,14 Q30,60 54,106" />
+                        <svg
+                            class="sec-blob sec-blob-menu"
+                            viewBox="0 0 100 120"
+                            aria-hidden="true"
+                        >
+                            <path
+                                class="bean-body"
+                                d="M50,4 C74,4 90,32 90,60 C90,96 70,116 50,116 C26,116 10,90 10,58 C10,26 27,4 50,4 Z"
+                            />
+                            <path
+                                class="bean-crease"
+                                d="M52,14 Q30,60 54,106"
+                            />
                         </svg>
                         <div class="section-label">Menu</div>
                         <h2>Apa yang mau diseduh hari ini?</h2>
@@ -1632,9 +1655,19 @@
 
                     <!-- ============ TESTIMONI (dummy preview) ============ -->
                     <section class="cp-section" id="testimoni">
-                        <svg class="sec-blob sec-blob-testi" viewBox="0 0 100 120" aria-hidden="true">
-                            <path class="bean-body" d="M50,4 C74,4 90,32 90,60 C90,96 70,116 50,116 C26,116 10,90 10,58 C10,26 27,4 50,4 Z" />
-                            <path class="bean-crease" d="M52,14 Q30,60 54,106" />
+                        <svg
+                            class="sec-blob sec-blob-testi"
+                            viewBox="0 0 100 120"
+                            aria-hidden="true"
+                        >
+                            <path
+                                class="bean-body"
+                                d="M50,4 C74,4 90,32 90,60 C90,96 70,116 50,116 C26,116 10,90 10,58 C10,26 27,4 50,4 Z"
+                            />
+                            <path
+                                class="bean-crease"
+                                d="M52,14 Q30,60 54,106"
+                            />
                         </svg>
                         <div class="section-label">Kata Mereka</div>
                         <h2>Kita masih baru banget</h2>
@@ -1674,9 +1707,19 @@
 
                     <!-- ============ FAQ ============ -->
                     <section class="cp-section" id="faq">
-                        <svg class="sec-blob sec-blob-faq" viewBox="0 0 100 120" aria-hidden="true">
-                            <path class="bean-body" d="M50,4 C74,4 90,32 90,60 C90,96 70,116 50,116 C26,116 10,90 10,58 C10,26 27,4 50,4 Z" />
-                            <path class="bean-crease" d="M52,14 Q30,60 54,106" />
+                        <svg
+                            class="sec-blob sec-blob-faq"
+                            viewBox="0 0 100 120"
+                            aria-hidden="true"
+                        >
+                            <path
+                                class="bean-body"
+                                d="M50,4 C74,4 90,32 90,60 C90,96 70,116 50,116 C26,116 10,90 10,58 C10,26 27,4 50,4 Z"
+                            />
+                            <path
+                                class="bean-crease"
+                                d="M52,14 Q30,60 54,106"
+                            />
                         </svg>
                         <div class="section-label">Tanya-tanya</div>
                         <h2>Yang sering ditanyain</h2>
@@ -2255,13 +2298,23 @@
                     !window.matchMedia("(prefers-reduced-motion: reduce)")
                         .matches
                 ) {
-                    heroVideos.forEach(function (v) {
-                        v.play().catch(function () {});
-                    });
+                    // heroVideos.forEach(function (v) {
+                    //     v.play().catch(function () {});
+                    // });
+                    // setInterval(function () {
+                    //     heroVideos[heroIdx].classList.remove("is-active");
+                    //     heroIdx = (heroIdx + 1) % heroVideos.length;
+                    //     heroVideos[heroIdx].classList.add("is-active");
+                    // }, 5000);
+
+                    heroVideos[0].play().catch(function () {});
                     setInterval(function () {
                         heroVideos[heroIdx].classList.remove("is-active");
                         heroIdx = (heroIdx + 1) % heroVideos.length;
-                        heroVideos[heroIdx].classList.add("is-active");
+                        var next = heroVideos[heroIdx];
+                        next.load();
+                        next.play().catch(function () {});
+                        next.classList.add("is-active");
                     }, 5000);
                 }
 
